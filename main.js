@@ -4,6 +4,8 @@ const btn = document.getElementById('btn');
 const select = document.getElementById('select');
 const input = document.getElementById('input');
 
+
+
 const toRome = (num) => {
     let out = '';
     do{ if(num >= 1000){
@@ -33,13 +35,13 @@ const toRome = (num) => {
       }else if(num >= 10 && num <= 39){
         out += 'X';
         num -= 10;
-      }else if(num === 9){
+      }else if(num >= 8 && num <= 10){
         out += 'IX';
         num -= 9;
       }else if(num >= 5 && num <= 8){
         out += 'V';
         num -= 5;
-      }else if(num === 4){
+      }else if(num >= 3 && num <= 5){
         out += 'IV';
         num -= 4;
       }else if(num <= 3){
@@ -52,6 +54,7 @@ const toRome = (num) => {
       return out;
 };
 
-console.log(toRome(2024))
-
-container.innerHTML= `MCMXXL`;
+form.addEventListener('submit', (e) => {
+ e.preventDefault();
+ container.innerHTML = `${toRome(input.value)}`
+})
