@@ -35,13 +35,13 @@ const toRome = (num) => {
       }else if(num >= 10 && num <= 39){
         out += 'X';
         num -= 10;
-      }else if(num >= 8 && num <= 10){
+      }else if(num > 8 && num < 10){
         out += 'IX';
         num -= 9;
       }else if(num >= 5 && num <= 8){
         out += 'V';
         num -= 5;
-      }else if(num >= 3 && num <= 5){
+      }else if(num > 3 && num < 5){
         out += 'IV';
         num -= 4;
       }else if(num <= 3){
