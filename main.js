@@ -1,3 +1,4 @@
+//Variables
 const form = document.getElementById('form');
 const container = document.getElementById('container');
 const btn = document.getElementById('btn');
@@ -5,56 +6,57 @@ const select = document.getElementById('select');
 const input = document.getElementById('input');
 
 
-
+//Number to roman handler
 const toRome = (integer) => {
-    let out = '';
+    let output = '';
     do {
         if (integer >= 1000) {
-            out += 'M';
+            output += 'M';
             integer -= 1000;
         } else if (integer >= 900 && integer <= 999) {
-            out += 'CM';
+            output += 'CM';
             integer -= 900;
         } else if (integer >= 500 && integer <= 899) {
-            out += 'D';
+            output += 'D';
             integer -= 500;
         } else if (integer >= 400 && integer <= 499) {
-            out += 'CD';
+            output += 'CD';
             integer -= 400;
         } else if (integer >= 100 && integer <= 399) {
-            out += 'C';
+            output += 'C';
             integer -= 100;
         } else if (integer >= 90 && integer <= 99) {
-            out += 'XC';
+            output += 'XC';
             integer -= 90;
         } else if (integer >= 50 && integer <= 89) {
-            out += 'L';
+            output += 'L';
             integer -= 50;
         } else if (integer >= 40 && integer <= 49) {
-            out += 'XL';
+            output += 'XL';
             integer -= 40;
         } else if (integer >= 10 && integer <= 39) {
-            out += 'X';
+            output += 'X';
             integer -= 10;
         } else if (integer > 8 && integer < 10) {
-            out += 'IX';
+            output += 'IX';
             integer -= 9;
         } else if (integer >= 5 && integer <= 8) {
-            out += 'V';
+            output += 'V';
             integer -= 5;
         } else if (integer > 3 && integer < 5) {
-            out += 'IV';
+            output += 'IV';
             integer -= 4;
         } else if (integer <= 3) {
-            out += 'I';
+            output += 'I';
             integer -= 1;
         } else {
             return '';
         }
     } while (integer > 0);
-    return out;
+    return output;
 };
 
+//Roman to number handler
 const fromRome = (romanNum) => {
     const obj = {
         I: 1,
