@@ -15,7 +15,8 @@ body{
     padding: 20px;
     margin: 20px;
     border: 1px solid black;
-    width: fit-content;
+    border-radius: 10px;
+    width: 40%;
 }
 
 #select{
@@ -23,5 +24,14 @@ body{
 }
 
 #btn{
-    margin-bottom: 20px;
+    margin: 20px;
+}
+
+#container{
+    width: auto;
+    display: flex;
+    justify-content: center;
+    padding: 10%;
+    font-size: 30px;
+    font-weight: bold;
 }
