@@ -3,10 +3,7 @@ const form = document.getElementById('form');
 const container = document.getElementById('container');
 const btn = document.getElementById('btn');
 const input = document.getElementById('input');
-const optionOne = document.getElementById('option-one');
-const optionTwo = document.getElementById('option-two');
 const label = document.getElementById('label');
-let select = document.getElementById('select');
 
 //Number to roman handler
 const toRome = (integer) => {
@@ -48,11 +45,11 @@ const toRome = (integer) => {
         } else if (integer > 3 && integer < 5) {
             output += 'IV';
             integer -= 4;
-        } else if (integer <= 3) {
+        } else if (integer <= 3 && integer > 0) {
             output += 'I';
             integer -= 1;
         } else {
-            return '';
+            output += 'Invalid input!';
         }
     } while (integer > 0);
     return output;
@@ -94,13 +91,14 @@ input.addEventListener('input', () => {
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-
     if (input.value.match(/[0-9]/g)) {
         container.innerHTML = `${toRome(input.value)}`;
     } else if (input.value.match(/[MDCLXVI]/g)) {
         container.innerHTML = `${fromRome(input.value)}`;
     } else if(!input.value.match(/[MDCLXVI0-9]/g)) {
         alert('Only letters M,D,C,L,X,V,I and numbers 0-9 are alowed!')
+    } else {
+        return null;
     }
 });
 
