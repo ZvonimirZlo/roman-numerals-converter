@@ -12,7 +12,7 @@
     <option value="1" id="option-one" >Integer to roman</option>
     <option value="2" id="option-two" >Roman to integer</option>
   </select>
-  <input type="text" id="input" placeholder="Enter input here..." required>
+  <input oninput="this.value = this.value.toUpperCase()" id="input" placeholder="Enter input here..." required>
   <button id="btn">Convert</button>
 </form>
 <div id="container">
