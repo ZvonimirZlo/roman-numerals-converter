@@ -6,7 +6,7 @@ const input = document.getElementById('input');
 const label = document.getElementById('label');
 
 //Number to roman handler
-const toRome = (integer) => {
+const toRomeHandler = (integer) => {
     let output = '';
     do {
         if (integer >= 1000) {
@@ -49,14 +49,14 @@ const toRome = (integer) => {
             output += 'I';
             integer -= 1;
         } else {
-            output += 'Invalid input!'; //Edge cases handler, if the input is below or equal to zero
+            output += 'Invalid input!'; //Handles edge cases, when input <= 0 or input is a mix of roman and arabic numbers...
         }
     } while (integer > 0);
     return output;
 };
 
 //Roman to number handler
-const fromRome = (romanNum) => {
+const fromRomeHandler = (romanNum) => {
     const obj = {
         I: 1,
         IV: 4,
@@ -76,8 +76,8 @@ const fromRome = (romanNum) => {
     return romanNum.split('').reduce((acc, curr, idx) => obj[curr] < obj[romanNum[idx + 1]] ? acc - obj[curr] : acc + obj[curr], 0);
 };
 
-//Label handler, changes the label text depending of input data type, shows what action will be taken on button click, 
-//and also cleans output container if the input is empty 
+//Label handler, changes the label text depending of input data type, shows what action will be triggered on button click, 
+//and also cleans output container so if the input is deleted otput will also be set to empty 
 input.addEventListener('input', () => {
     if (input.value.match(/[0-9]/g)) {
         label.innerHTML = 'Integer to roman';
@@ -87,19 +87,19 @@ input.addEventListener('input', () => {
         label.innerHTML = 'Convert your number';
         container.innerHTML = '';
     }
-})
+});
 
 const outputHandler = () => {
     if (input.value.match(/[0-9]/g)) {
         container.innerHTML = `${toRome(input.value)}`;
     } else if (input.value.match(/[MDCLXVI]/g)) {
         container.innerHTML = `${fromRome(input.value)}`;
-    } else if(!input.value.match(/[MDCLXVI0-9]/g)) {
-        alert('Only letters M,D,C,L,X,V,I and numbers 0-9 are alowed!')
+    } else if (!input.value.match(/[MDCLXVI0-9]/g)) {
+        alert('Only letters M,D,C,L,X,V,I and numbers 0-9 are allowed!')
     } else {
         return null;
-    }  
-}
+    }
+};
 
 //On submit form handler
 form.addEventListener('submit', (e) => {
