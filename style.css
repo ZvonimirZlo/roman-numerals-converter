@@ -31,9 +31,6 @@ body{
     margin-bottom: 20px;
 }
 
-#btn{
-    margin: 20px;
-}
 
 #btn:hover {
     color: black;
@@ -42,7 +39,8 @@ body{
     transition: .1s ease-in-out;
   }
 
-#btn, #select{
+#btn{
+    margin: 20px;
     background-color: black;
     border: 1px solid var(--primary-color);
     color: var(--primary-color);
