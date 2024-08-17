@@ -79,15 +79,16 @@ const fromRome = (romanNum) => {
     return romanNum.split('').reduce((acc, curr, idx) => obj[curr] < obj[romanNum[idx + 1]] ? acc - obj[curr] : acc + obj[curr], 0);
 };
 
-// console.log(fromRome('MMXXIV')); //outputs 2024
 
 input.addEventListener('input', () => {
-    if(input.value.match(/[0-9]/g)){
+    if(input.value.match(/[MDCLXVI]/g)) return;
+    if (input.value.match(/[0-9]/g)) {
         label.innerHTML = 'Integer to roman';
-    }else if(input.value.match(/[MDCLXVI]/g)){
+    } else if (input.value.match(/[MDCLXVI]/g)) {
         label.innerHTML = 'Roman to integer';
-    }else if(input.value === ''){
-            label.innerHTML = 'Convert your number';
+    } else if (input.value === '') {
+        label.innerHTML = 'Convert your number';
+        container.innerHTML = '';
     }
 })
 
@@ -95,15 +96,13 @@ input.addEventListener('input', () => {
 form.addEventListener('submit', (e) => {
     e.preventDefault();
 
-if(input.value.match(/[0-9]/g)){
-    container.innerHTML = `${toRome(input.value)}`;
-    // label.innerHTML = 'Integer to roman';
-}else if(input.value.match(/[MDCLXVI]/g)){
-    container.innerHTML = `${fromRome(input.value)}`;
-    // label.innerHTML = 'Roman to integer';
- }else{
-    alert('Invalid input or some other shit!');
- }
- });
+    if (input.value.match(/[0-9]/g)) {
+        container.innerHTML = `${toRome(input.value)}`;
+    } else if (input.value.match(/[MDCLXVI]/g)) {
+        container.innerHTML = `${fromRome(input.value)}`;
+    } else {
+        alert('Invalid input or some other shit!');
+    }
+});
 
 
