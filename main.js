@@ -2,9 +2,10 @@
 const form = document.getElementById('form');
 const container = document.getElementById('container');
 const btn = document.getElementById('btn');
-const select = document.getElementById('select');
 const input = document.getElementById('input');
-
+const optionOne = document.getElementById('option-one');
+const optionTwo = document.getElementById('option-two');
+let select = document.getElementById('select');
 
 //Number to roman handler
 const toRome = (integer) => {
@@ -77,10 +78,15 @@ const fromRome = (romanNum) => {
     return romanNum.split('').reduce((acc, curr, idx) => obj[curr] < obj[romanNum[idx + 1]] ? acc - obj[curr] : acc + obj[curr], 0);
 };
 
-console.log(fromRome('MMXXIV')); //outputs 2024
+// console.log(fromRome('MMXXIV')); //outputs 2024
 
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    container.innerHTML = `${toRome(input.value)}`
-});
+if(input.value.match(/[0-9]/g))container.innerHTML = `${toRome(input.value)}`;
+ if(input.value.match(/[MDCLXVI]/g)){
+    container.innerHTML = `${fromRome(input.value)}`;
+ }
+ });
+
+
