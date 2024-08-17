@@ -99,8 +99,8 @@ form.addEventListener('submit', (e) => {
         container.innerHTML = `${toRome(input.value)}`;
     } else if (input.value.match(/[MDCLXVI]/g)) {
         container.innerHTML = `${fromRome(input.value)}`;
-    } else {
-        alert('Only M,D,C,L,X,V,I letters are alowed!')
+    } else if(!input.value.match(/[MDCLXVI0-9]/g)) {
+        alert('Only letters M,D,C,L,X,V,I and numbers 0-9 are alowed!')
     }
 });
 
