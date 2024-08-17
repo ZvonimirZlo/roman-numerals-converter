@@ -83,9 +83,12 @@ const fromRome = (romanNum) => {
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-if(input.value.match(/[0-9]/g))container.innerHTML = `${toRome(input.value)}`;
- if(input.value.match(/[MDCLXVI]/g)){
+if(input.value.match(/[0-9]/g)){
+    container.innerHTML = `${toRome(input.value)}`;
+}else if(input.value.match(/[MDCLXVI]/g)){
     container.innerHTML = `${fromRome(input.value)}`;
+ }else{
+    alert('Invalid input or some other shit!');
  }
  });
 
