@@ -101,7 +101,7 @@ form.addEventListener('submit', (e) => {
     } else if (input.value.match(/[MDCLXVI]/g)) {
         container.innerHTML = `${fromRome(input.value)}`;
     } else {
-        alert('Invalid input or some other shit!');
+        alert('Only M,D,C,L,X,V,I letters are alowed!')
     }
 });
 
