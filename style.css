@@ -1,5 +1,6 @@
 :root{
     --primary-color: gold;
+    --secondary-color: rgb(255, 0, 0);
 }
 
 body{
@@ -35,8 +36,8 @@ body{
 #btn:hover {
     color: black;
     background-color: var(--primary-color);
-    box-shadow: 2px 2px 15px 2px red;
-    transition: .1s ease-in-out;
+    box-shadow: 2px 2px 15px 2px var(--secondary-color);
+    transition: .2s ease-in-out;
   }
 
 #btn{
@@ -68,7 +69,7 @@ body{
     font-size: 4.9em;
     font-weight: bold;
     color: var(--primary-color);
-    text-shadow: 5px 5px 5px red;
+    text-shadow: 5px 5px 5px var(--secondary-color);
 }
 
 label {

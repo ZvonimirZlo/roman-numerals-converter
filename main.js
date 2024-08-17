@@ -49,7 +49,7 @@ const toRome = (integer) => {
             output += 'I';
             integer -= 1;
         } else {
-            output += 'Invalid input!';
+            output += 'Invalid input!'; //Edge cases handler, if the input is below or equal to zero
         }
     } while (integer > 0);
     return output;
@@ -76,7 +76,8 @@ const fromRome = (romanNum) => {
     return romanNum.split('').reduce((acc, curr, idx) => obj[curr] < obj[romanNum[idx + 1]] ? acc - obj[curr] : acc + obj[curr], 0);
 };
 
-
+//Label handler, changes the label text depending of input data type, shows what action will be taken on button click, 
+//and also cleans output container if the input is empty 
 input.addEventListener('input', () => {
     if (input.value.match(/[0-9]/g)) {
         label.innerHTML = 'Integer to roman';
@@ -88,9 +89,7 @@ input.addEventListener('input', () => {
     }
 })
 
-
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
+const outputHandler = () => {
     if (input.value.match(/[0-9]/g)) {
         container.innerHTML = `${toRome(input.value)}`;
     } else if (input.value.match(/[MDCLXVI]/g)) {
@@ -99,7 +98,13 @@ form.addEventListener('submit', (e) => {
         alert('Only letters M,D,C,L,X,V,I and numbers 0-9 are alowed!')
     } else {
         return null;
-    }
+    }  
+}
+
+//On submit form handler
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    outputHandler();
 });
 
 
