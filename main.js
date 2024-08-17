@@ -81,7 +81,6 @@ const fromRome = (romanNum) => {
 
 
 input.addEventListener('input', () => {
-    if(input.value.match(/[MDCLXVI]/g)) return;
     if (input.value.match(/[0-9]/g)) {
         label.innerHTML = 'Integer to roman';
     } else if (input.value.match(/[MDCLXVI]/g)) {
