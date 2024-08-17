@@ -5,6 +5,7 @@ const btn = document.getElementById('btn');
 const input = document.getElementById('input');
 const optionOne = document.getElementById('option-one');
 const optionTwo = document.getElementById('option-two');
+const label = document.getElementById('label');
 let select = document.getElementById('select');
 
 //Number to roman handler
@@ -80,13 +81,26 @@ const fromRome = (romanNum) => {
 
 // console.log(fromRome('MMXXIV')); //outputs 2024
 
+input.addEventListener('input', () => {
+    if(input.value.match(/[0-9]/g)){
+        label.innerHTML = 'Integer to roman';
+    }else if(input.value.match(/[MDCLXVI]/g)){
+        label.innerHTML = 'Roman to integer';
+    }else if(input.value === ''){
+            label.innerHTML = 'Convert your number';
+    }
+})
+
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
+
 if(input.value.match(/[0-9]/g)){
     container.innerHTML = `${toRome(input.value)}`;
+    // label.innerHTML = 'Integer to roman';
 }else if(input.value.match(/[MDCLXVI]/g)){
     container.innerHTML = `${fromRome(input.value)}`;
+    // label.innerHTML = 'Roman to integer';
  }else{
     alert('Invalid input or some other shit!');
  }

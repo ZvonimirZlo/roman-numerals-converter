@@ -72,3 +72,7 @@ body{
     color: var(--primary-color);
     text-shadow: 5px 5px 5px red;
 }
+
+label {
+    color: var(--primary-color);
+}
