@@ -55,7 +55,7 @@ const toRomeHandler = (integer) => {
     return output;
 };
 
-//Roman to number handler
+//Roman to arabic number handler
 const fromRomeHandler = (romanNum) => {
     const obj = {
         I: 1,
@@ -89,6 +89,7 @@ input.addEventListener('input', () => {
     }
 });
 
+//Output handler
 const handleOutput = () => {
     if (input.value.match(/[0-9]/g)) {
         container.innerHTML = `${toRomeHandler(input.value)}`;
@@ -101,7 +102,7 @@ const handleOutput = () => {
     }
 };
 
-
+//Executes conversion on 'Enter' press
 input.addEventListener("keypress", (event) => {
     if (event.key === "Enter") {
       event.preventDefault();
@@ -109,7 +110,7 @@ input.addEventListener("keypress", (event) => {
     }
   });
 
-//On submit form handler
+//On form submit handler
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     handleOutput();
