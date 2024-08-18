@@ -77,7 +77,7 @@ const fromRomeHandler = (romanNum) => {
 };
 
 //Label handler, changes the label text depending of input data type, shows what action will be triggered on button click, 
-//and also cleans output container so if the input is deleted otput will also be set to empty 
+//and also cleans output container if the input is empty 
 input.addEventListener('input', () => {
     if (input.value.match(/[0-9]/g)) {
         label.innerHTML = 'Integer to roman';
@@ -89,11 +89,11 @@ input.addEventListener('input', () => {
     }
 });
 
-const outputHandler = () => {
+const handleOutput = () => {
     if (input.value.match(/[0-9]/g)) {
-        container.innerHTML = `${toRome(input.value)}`;
+        container.innerHTML = `${toRomeHandler(input.value)}`;
     } else if (input.value.match(/[MDCLXVI]/g)) {
-        container.innerHTML = `${fromRome(input.value)}`;
+        container.innerHTML = `${fromRomeHandler(input.value)}`;
     } else if (!input.value.match(/[MDCLXVI0-9]/g)) {
         alert('Only letters M,D,C,L,X,V,I and numbers 0-9 are allowed!')
     } else {
@@ -101,10 +101,18 @@ const outputHandler = () => {
     }
 };
 
+
+input.addEventListener("keypress", (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      btn.click();
+    }
+  });
+
 //On submit form handler
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    outputHandler();
+    handleOutput();
 });
 
 
