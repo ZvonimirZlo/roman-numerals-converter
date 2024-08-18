@@ -102,7 +102,7 @@ const handleOutput = () => {
     }
 };
 
-//Executes conversion on 'Enter' press
+//Executes number conversion on 'Enter' press
 input.addEventListener("keypress", (event) => {
     if (event.key === "Enter") {
       event.preventDefault();
