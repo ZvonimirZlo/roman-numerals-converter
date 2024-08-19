@@ -11,7 +11,7 @@
 
 <h4>Live demo: <a href='https://numeralconverterzlo.netlify.app'>Roman numerals converter</a></h4>
 
-Converts roman numerals to decimal numbers and vice versa. Enter number in input field and click the button 'Click to convert' or press 'Enter'.
+Converts roman numerals to decimal numbers or decimal to roman. Enter number in input field and click the button 'Click to convert' or press 'Enter'.
 
 
 ## Screenshots
