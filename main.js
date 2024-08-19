@@ -49,13 +49,13 @@ const toRomeHandler = (integer) => {
             output += 'I';
             integer -= 1;
         } else {
-            output += 'Invalid input!'; //Handles edge cases, when input <= 0 or input is a mix of roman and arabic numbers...
+            output += 'Invalid input!'; //Handles edge cases, when input <= 0 or input is a mix of roman and decimal numbers...
         }
     } while (integer > 0);
     return output;
 };
 
-//Roman to arabic number handler
+//Roman to decimal number handler
 const fromRomeHandler = (romanNum) => {
     const obj = {
         I: 1,
@@ -80,9 +80,9 @@ const fromRomeHandler = (romanNum) => {
 //and also cleans output container if the input is empty 
 input.addEventListener('input', () => {
     if (input.value.match(/[0-9]/g)) {
-        label.innerHTML = 'Integer to roman';
+        label.innerHTML = 'Decimal to roman';
     } else if (input.value.match(/[MDCLXVI]/g)) {
-        label.innerHTML = 'Roman to integer';
+        label.innerHTML = 'Roman to decimal';
     } else if (input.value === '') {
         label.innerHTML = 'Convert your number';
         container.innerHTML = '';
